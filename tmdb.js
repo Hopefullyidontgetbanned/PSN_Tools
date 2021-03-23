@@ -7,9 +7,9 @@ const TMDBKey = Buffer.from('F5DE66D2680E255B2DF79E74F890EBF349262F618BCAE2A9ACC
 var titleIDs = fs.readFileSync(process.argv[2]).toString().split(",");
 
 for (let i = 0; i < titleIDs.length; i++) {
-  let ID = titleIDs[i].trim();
+  let ID = titleIDs[i].trim() + ("_00");
   let seed = crypto.createHmac('sha1', TMDBKey).update(ID).digest('hex');
   console.log(`http://tmdb.np.dl.playstation.net/tmdb/${ID}_${seed.toUpperCase()}/${ID}.xml`);
   console.log(`http://tmdb.np.dl.playstation.net/psp2-tmdb/${ID}_${seed.toUpperCase()}/${ID}.xml`);
-  console.log(`http://tmdb.np.dl.playstation.net/tmdb2/${ID}_${seed.toUpperCase()}/${ID}.json`);
+  console.log(`http://tmdb.np.dl.playstation.net/tmdb2/${ID}_00)_${seed.toUpperCase()}/${ID}_00.json`);
 }
